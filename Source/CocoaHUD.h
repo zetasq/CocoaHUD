@@ -6,7 +6,7 @@
 //  Copyright © 2016 zetasq. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for CocoaHUD.
 FOUNDATION_EXPORT double CocoaHUDVersionNumber;
