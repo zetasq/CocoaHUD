@@ -2,7 +2,7 @@
 //  WeakContainer.swift
 //  CocoaHUD
 //
-//  Created by Zhu Shengqi on 14/12/2016.
+//  Created by Zhu Shengqi on 26/12/2016.
 //  Copyright © 2016 zetasq. All rights reserved.
 //
 
@@ -13,5 +13,5 @@ final class WeakContainer {
     
     init(obj: AnyObject) {
         self.obj = obj
-    }
+    } 
 }

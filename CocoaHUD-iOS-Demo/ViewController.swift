@@ -13,6 +13,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
 
+    
+    @IBOutlet weak var styleSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,7 +25,29 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        CocoaHUD.show(.loading, style: .dark, title: "Loading", in: imageView)
+    }
+    
+    @IBAction func showLoading() {
+        if styleSwitch.isOn {
+            CocoaHUD.show(.loading, style: .light, title: "Loading", in: imageView, hideAfter: 3)
+        } else {
+            CocoaHUD.show(.loading, style: .dark, title: "Loading", in: imageView, hideAfter: 3)
+        }
+    }
+    @IBAction func showSuccess() {
+        if styleSwitch.isOn {
+            CocoaHUD.show(.success, style: .light, title: "Done", in: imageView, hideAfter: 3)
+        } else {
+            CocoaHUD.show(.success, style: .dark, title: "Done", in: imageView, hideAfter: 3)
+        }
+    }
+    
+    @IBAction func showFailure() {
+        if styleSwitch.isOn {
+            CocoaHUD.show(.failure, style: .light, title: "Failed", in: imageView, hideAfter: 3)
+        } else {
+            CocoaHUD.show(.failure, style: .dark, title: "Failed", in: imageView, hideAfter: 3)
+        }
     }
     
 }

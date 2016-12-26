@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,20 +22,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assasin" translatesAutoresizingMaskIntoConstraints="NO" id="8Vw-z6-dXb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assasin" translatesAutoresizingMaskIntoConstraints="NO" id="8Vw-z6-dXb">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VRC-uk-18i">
+                                <rect key="frame" x="310" y="628" width="49" height="31"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xe3-FS-lvg">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="31"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-Pz-Eba">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH5-5q-MOg">
+                                <rect key="frame" x="14" y="628" width="51" height="30"/>
+                                <state key="normal" title="loading"/>
+                                <connections>
+                                    <action selector="showLoading" destination="BYZ-38-t0r" eventType="touchUpInside" id="bOk-7Y-Nh1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFZ-If-oUW">
+                                <rect key="frame" x="88" y="629" width="56" height="30"/>
+                                <state key="normal" title="success"/>
+                                <connections>
+                                    <action selector="showSuccess" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ba-za-XTq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpg-9l-d8F">
+                                <rect key="frame" x="179" y="628" width="43" height="30"/>
+                                <state key="normal" title="failure"/>
+                                <connections>
+                                    <action selector="showFailure" destination="BYZ-38-t0r" eventType="touchUpInside" id="Il0-3O-cQ6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VRC-uk-18i" secondAttribute="bottom" constant="8" symbolic="YES" id="9Rp-wU-dSc"/>
+                            <constraint firstItem="nH5-5q-MOg" firstAttribute="top" secondItem="VRC-uk-18i" secondAttribute="top" id="G2H-fX-oIP"/>
+                            <constraint firstItem="jFZ-If-oUW" firstAttribute="leading" secondItem="nH5-5q-MOg" secondAttribute="trailing" constant="23" id="MDF-TN-KFF"/>
+                            <constraint firstItem="fpg-9l-d8F" firstAttribute="leading" secondItem="jFZ-If-oUW" secondAttribute="trailing" constant="35" id="Qc9-ST-e9Y"/>
+                            <constraint firstItem="VRC-uk-18i" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="T24-Qd-4OZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Vw-z6-dXb" secondAttribute="bottom" id="Ztv-Zh-1UN"/>
                             <constraint firstItem="8Vw-z6-dXb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gDl-Si-cJV"/>
+                            <constraint firstItem="fpg-9l-d8F" firstAttribute="baseline" secondItem="nH5-5q-MOg" secondAttribute="baseline" id="h1h-gb-4UU"/>
                             <constraint firstItem="8Vw-z6-dXb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jMM-oC-1IX"/>
+                            <constraint firstItem="nH5-5q-MOg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-2" id="kaF-T5-u7F"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jFZ-If-oUW" secondAttribute="bottom" constant="8" symbolic="YES" id="l6v-Ol-2dN"/>
                             <constraint firstAttribute="trailing" secondItem="8Vw-z6-dXb" secondAttribute="trailing" id="rsn-n5-QoS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="8Vw-z6-dXb" id="WWm-Q6-0RN"/>
+                        <outlet property="styleSwitch" destination="6Nz-Pz-Eba" id="qjT-Ne-I7c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

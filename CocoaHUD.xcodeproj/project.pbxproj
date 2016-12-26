@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D437A2821E00583900EC0C5E /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D437A2811E00583900EC0C5E /* WeakContainer.swift */; };
+		D431DF461E0130370032AD4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D431DF451E0130370032AD4C /* Assets.xcassets */; };
 		D44FDE2A1DFE52090059C38A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FDE291DFE52090059C38A /* AppDelegate.swift */; };
 		D44FDE2C1DFE52090059C38A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FDE2B1DFE52090059C38A /* ViewController.swift */; };
 		D44FDE2F1DFE52090059C38A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FDE2D1DFE52090059C38A /* Main.storyboard */; };
@@ -17,6 +17,7 @@
 		D44FDE491DFE73510059C38A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44FDE481DFE73510059C38A /* Assets.xcassets */; };
 		D44FDE4C1DFE73510059C38A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44FDE4A1DFE73510059C38A /* MainMenu.xib */; };
 		D44FDE5E1DFE74710059C38A /* CocoaHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D44FDE3A1DFE54E80059C38A /* CocoaHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D45CD8441E10B30300D0F601 /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45CD8431E10B30300D0F601 /* WeakContainer.swift */; };
 		D48B8CB01DFF04DC007685D8 /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B8CAF1DFF04DC007685D8 /* LoadingLayer.swift */; };
 		D4B9B69D1DFE831600080EC5 /* CocoaHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9B69C1DFE831600080EC5 /* CocoaHUD.swift */; };
 		D4B9B69E1DFE871700080EC5 /* CocoaHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D44FDE3A1DFE54E80059C38A /* CocoaHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,7 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D437A2811E00583900EC0C5E /* WeakContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
+		D431DF451E0130370032AD4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44FDE091DFE51080059C38A /* CocoaHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44FDE271DFE52090059C38A /* CocoaHUD-iOS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CocoaHUD-iOS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44FDE291DFE52090059C38A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		D44FDE4B1DFE73510059C38A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D44FDE4D1DFE73510059C38A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44FDE561DFE73970059C38A /* CocoaHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45CD8431E10B30300D0F601 /* WeakContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
 		D48B8CAF1DFF04DC007685D8 /* LoadingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		D4B9B69C1DFE831600080EC5 /* CocoaHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaHUD.swift; sourceTree = "<group>"; };
 		D4B9B6A01DFE93C000080EC5 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -159,10 +161,11 @@
 			children = (
 				D44FDE3A1DFE54E80059C38A /* CocoaHUD.h */,
 				D44FDE3B1DFE54E80059C38A /* Info.plist */,
+				D431DF451E0130370032AD4C /* Assets.xcassets */,
 				D4B9B69C1DFE831600080EC5 /* CocoaHUD.swift */,
 				D4B9B6A21DFE941A00080EC5 /* HUDView.swift */,
 				D48B8CAF1DFF04DC007685D8 /* LoadingLayer.swift */,
-				D437A2811E00583900EC0C5E /* WeakContainer.swift */,
+				D45CD8431E10B30300D0F601 /* WeakContainer.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D431DF461E0130370032AD4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B9B6A31DFE941A00080EC5 /* HUDView.swift in Sources */,
-				D437A2821E00583900EC0C5E /* WeakContainer.swift in Sources */,
+				D45CD8441E10B30300D0F601 /* WeakContainer.swift in Sources */,
 				D48B8CB01DFF04DC007685D8 /* LoadingLayer.swift in Sources */,
 				D4B9B69D1DFE831600080EC5 /* CocoaHUD.swift in Sources */,
 			);

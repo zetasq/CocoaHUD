@@ -25,7 +25,7 @@ extension UIView {
             if let hudView = newValue {
                 objc_setAssociatedObject(self, &hudViewKey, WeakContainer(obj: hudView), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             } else {
-                objc_removeAssociatedObjects(self)
+                objc_setAssociatedObject(self, &hudViewKey, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
@@ -46,7 +46,7 @@ public final class HUDView: UIVisualEffectView {
     }
     
     private let style: CocoaHUD.HUDStyle
-    
+
     private lazy var containerView: UIView = {
         let containerView = UIView()
         
@@ -70,7 +70,7 @@ public final class HUDView: UIVisualEffectView {
         }
         
         titleLabel.text = self.title
-        titleLabel.font = UIFont.systemFont(ofSize: 13)
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
@@ -150,7 +150,7 @@ public final class HUDView: UIVisualEffectView {
             }
             
             titleLabel.snp.remakeConstraints{ make in
-                make.top.equalTo(graphicView.snp.bottom).offset(15)
+                make.top.equalTo(graphicView.snp.bottom).offset(10)
                 make.centerX.equalToSuperview()
                 make.bottom.equalToSuperview()
                 make.left.greaterThanOrEqualToSuperview()
@@ -194,9 +194,37 @@ public final class HUDView: UIVisualEffectView {
             graphicView.layer.addSublayer(loadingLayer)
             loadingLayer.startAnimating()
         case .success:
-            break
+            var image: UIImage
+            switch style {
+            case .light:
+                image = UIImage(named: "hud_success_black", in: Bundle(for: type(of: self)), compatibleWith: nil)!
+            case .dark:
+                image = UIImage(named: "hud_success_white", in: Bundle(for: type(of: self)), compatibleWith: nil)!
+            }
+            
+            let imageView = UIImageView(image: image)
+            imageView.contentMode = .scaleAspectFit
+            
+            graphicView.addSubview(imageView)
+            imageView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
         case .failure:
-            break
+            var image: UIImage
+            switch style {
+            case .light:
+                image = UIImage(named: "hud_failure_black", in: Bundle(for: type(of: self)), compatibleWith: nil)!
+            case .dark:
+                image = UIImage(named: "hud_failure_white", in: Bundle(for: type(of: self)), compatibleWith: nil)!
+            }
+            
+            let imageView = UIImageView(image: image)
+            imageView.contentMode = .scaleAspectFit
+            
+            graphicView.addSubview(imageView)
+            imageView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
         }
     }
 }

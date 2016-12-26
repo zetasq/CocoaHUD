@@ -23,25 +23,60 @@ public final class CocoaHUD {
     
     private init() {}
     
-    public static func show(_ type: HUDType, style: HUDStyle, title: String, in canvasView: UIView) {
+    public static func show(_ type: HUDType, style: HUDStyle, title: String, in canvasView: UIView, hideAfter showTime: Double? = nil) {
         canvasView.isUserInteractionEnabled = false
         
-        let hudView = HUDView(type: type, style: style, title: title)
-        canvasView.addSubview(hudView)
-        
-        hudView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        
-        hudView.layoutIfNeeded()
-        hudView.installDynamicElements()
-        
-        hudView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        hudView.alpha = 0.5
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: [.beginFromCurrentState], animations: {
+        if let hudView = canvasView.hudView {
+            hudView.type = type
+            hudView.title = title
+            
             hudView.transform = .identity
             hudView.alpha = 1
-        }, completion: nil)
+            
+            hudView.installDynamicElements()
+        } else {
+            let hudView = HUDView(type: type, style: style, title: title)
+            
+            canvasView.addSubview(hudView)
+            canvasView.hudView = hudView
+            
+            hudView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
+            
+            hudView.layoutIfNeeded()
+            hudView.installDynamicElements()
+            
+            hudView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            hudView.alpha = 0
+            
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [.beginFromCurrentState], animations: {
+                hudView.transform = .identity
+                hudView.alpha = 1
+            }, completion: nil)
+        }
+        
+        if let showTime = showTime {
+            DispatchQueue.main.asyncAfter(deadline: .now() + showTime) {
+                hide(in: canvasView)
+            }
+        }
+    }
+    
+    public static func hide(in canvasView: UIView, completion: (() -> Void)? = nil) {
+        guard let hudView = canvasView.hudView else {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            hudView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            hudView.alpha = 0
+        }) { finished in
+            if finished {
+                hudView.removeFromSuperview()
+                canvasView.hudView = nil
+            }
+            completion?()
+        }
     }
 }
